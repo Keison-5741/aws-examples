@@ -17,5 +17,6 @@ LOCALTION_NAME=$3
 aws s3api create-bucket \
 --bucket $BUCKET_NAME \
 --region=$REGION_NAME \
---create-bucket-configuration LocationConstraint=$LOCALTION_NAME
-
+--create-bucket-configuration LocationConstraint=$LOCALTION_NAME \
+--query Location \
+--output text
