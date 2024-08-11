@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
-if [ --z "$1"]: then
-     echo "There needs to be a bucket name"
+#!/usr/bin/bash
+
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name"
     exit 1
 fi
 
