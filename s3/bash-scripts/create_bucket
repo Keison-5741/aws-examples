@@ -2,12 +2,18 @@
 
 echo "== Create a bucket"
 if [ -z "$1" ]; then
-    echo "The fisrt agurment needs to be a bucket name"
+    echo "The fisrt agurment needs to be a BUCKET_NAME here"
     exit 1
 fi
 
 if [ -z "$2" ]; then
-    echo "The second agurment needs to be a region name ex: ap-northeast-1"
+    echo "The second agurment needs to be a REGION_NAME here ex: ap-northeast-1"
+    exit 2
+fi
+
+if [ -z "$3" ]; then
+    echo "The third agurment needs to be a LOCALTION_NAME name here ex: ap-northeast-1"
+    exit3
 fi
 
 BUCKET_NAME=$1

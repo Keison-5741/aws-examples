@@ -2,6 +2,7 @@ tasks:
   - name: setup utilities
     before:
         sudo apt-get install tree;
+        sudo apt-get install jq
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial

@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
 echo "== List  buckets"
 
-aws s3api
+# aws s3api list-buckets --query 'Buckets[].Name' --output text
+aws s3api list-buckets | jq -r '.Buckets | sort_by(.CreationDate) | reverse | .[] | .Name'
