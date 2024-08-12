@@ -2,5 +2,5 @@
 echo "== List newest buckets by create date"
 
 # aws s3api list-buckets --query 'Buckets[].Name' --output text
-aws s3api list-buckets | jq -r '.Buckets | sort_by(.CreationDate) | reverse | .[0:5] | .[] | .Name'
-echo "..."
+aws s3api list-buckets | jq -r '.Buckets | sort_by(.CreationDate) | reverse | .[0] | .Name'
+

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-echo "== Delete a bucket"
+echo "== List a bucket"
 if [ -z "$1" ]; then
     echo "The fisrt agurment must give a bucket name!"
     exit 1
@@ -17,5 +17,6 @@ LOCALTION_NAME=$3
 
 #https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
 aws s3api list-objects-v2 \
---bucket $BUCKET_NAME \
---query Contents[].Key
+--bucket $BUCKET_NAME #\
+# --query Contents[].Key \
+# --output text

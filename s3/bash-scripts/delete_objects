@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-echo "==  put-object"
+echo "==  delete-objects"
 
 
 # validate bucket name 
@@ -16,9 +16,7 @@ fi
 
 BUCKET_NAME=$1
 FILENAME=$2
-OBJECT_KEY=$(basename "$FILENAME")
-echo $OBJECT_KEY
-aws s3api put-object \
+
+aws s3api delete-objects \
 --bucket $BUCKET_NAME \
---body $FILENAME \
---key  $OBJECT_KEY
+--delete '{"Objects": [{"Key": FILENAME}], "Quiet": false}'

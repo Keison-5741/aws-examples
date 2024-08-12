@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-echo "==== sync"
+echo "== sync"
+# Exit script if it return a non-zero status
+set -e
 
 # validate bucket name 
 if [ -z "$1" ]; then
@@ -10,35 +12,38 @@ fi
 
 # check filename prefix bucket name 
 if [ -z "$2" ]; then
-    echo "The fisrt agurment must give a File Name!"
+    echo "The fisrt agurment must give a fileName prefix !"
     exit 2
 fi
 
 BUCKET_NAME=$1
-
 FILENAME_PREFIX=$2
 
-# Exit script if it return a non-zero status
-set -e
-
 # Define the directory where the files will be stored
-OUTPUT_DIR="/tmp/s3-bash-script"
-rm -r $OUTPUT_DIR
+OUTPUT_DIR="/tmp/s3-bash-scripts"
 
-# Create the directory, if it already exists, it will not have any effect
-mkdir -p "$OUTPUT_DIR"
+#remove $OUTPUT_DIR folder if it exist
+if [ ! -d "$OUTPUT_DIR" ]; then
+    mkdir -p "$OUTPUT_DIR"
+else
+    rm -r $OUTPUT_DIR
+    mkdir -p "$OUTPUT_DIR"
+fi
+
+# # Create the directory, if it already exists, it will not have any effect
+# mkdir -p "$OUTPUT_DIR"
 
 # Generate a random number between 5 and 10 to determine how many files to create
 NUM_FILES=$((RANDOM % 6 + 5))
 
 for ((i=1; i<=$NUM_FILES; i++)); do
     # File name using sequential numbering
-    FILENAME="$OUTPUT_DIR/file_$FILENAME_PREFIX_$i.txt"
+    FILENAME="$OUTPUT_DIR/${FILENAME_PREFIX}_$i.txt"
     
     # Use dd to create a file with random data, file size is 1MB
-    dd if=/dev/urandom of="$OUTPUT_DIR/$FILENAME" bs=1M count=1 status=none
+    dd if=/dev/urandom of="$FILENAME" bs=1M count=1 status=none
     
 done
 
 tree $OUTPUT_DIR
-aws s3api sync $OUTPUT_DIR s3://$BUCKET_NAME/files
+aws s3 sync $OUTPUT_DIR s3://$BUCKET_NAME/files/
