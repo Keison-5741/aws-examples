@@ -8,15 +8,15 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-BUCKET_NAME=$1
-
 # check filename prefix bucket name 
 if [ -z "$2" ]; then
-    echo "The fisrt agurment must give a bucket name!"
-    exit 1
+    echo "The fisrt agurment must give a File Name!"
+    exit 2
 fi
 
-FILE_NAME_NAME=$2
+BUCKET_NAME=$1
+
+FILENAME_PREFIX=$2
 
 # Exit script if it return a non-zero status
 set -e
@@ -33,12 +33,12 @@ NUM_FILES=$((RANDOM % 6 + 5))
 
 for ((i=1; i<=$NUM_FILES; i++)); do
     # File name using sequential numbering
-    FILE_NAME="file_$NUM_FILES$i.txt"
+    FILENAME="$OUTPUT_DIR/file_$FILENAME_PREFIX_$i.txt"
     
     # Use dd to create a file with random data, file size is 1MB
-    dd if=/dev/urandom of="$OUTPUT_DIR/$FILE_NAME" bs=1M count=1 status=none
+    dd if=/dev/urandom of="$OUTPUT_DIR/$FILENAME" bs=1M count=1 status=none
     
 done
-BUCKET_NAME=$1
+
 tree $OUTPUT_DIR
-aws s3api sync $OUTPUT_DIR s3://$BUCKET_NAME
+aws s3api sync $OUTPUT_DIR s3://$BUCKET_NAME/files

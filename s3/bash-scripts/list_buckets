@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+echo "== List  buckets"
+
+aws s3api
