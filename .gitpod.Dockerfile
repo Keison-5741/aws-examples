@@ -3,7 +3,12 @@ FROM amazonlinux:latest
 
 # 更新並安裝必要的工具
 RUN yum update -y 
-RUN yum install -y git tree jq unzip curl 
+RUN yum install -y 
+RUN yum install -y git 
+RUN yum install -y tree 
+RUN yum install -y jq 
+RUN yum install -y unzip 
+RUN yum install -y curl 
 RUN yum clean all
 
 # 安裝 AWS CLI
