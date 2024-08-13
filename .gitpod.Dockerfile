@@ -5,15 +5,15 @@ FROM amazonlinux:latest
 RUN yum update -y
 RUN yum install -y git
 RUN yum install -y tree
-RUN sudo yum install -y jq
-RUN sudo yum install -y unzip 
-RUN sudo yum install -y curl
-RUN sudo yum yum clean all
+RUN yum install -y jq
+RUN yum install -y unzip 
+RUN yum install -y curl
+RUN yum yum clean all
 
 # 安裝 AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
 RUN unzip awscliv2.zip 
-RUN sudo ./aws/install 
+RUN ./aws/install 
 RUN rm -rf awscliv2.zip aws
 
 # 設定環境變數
