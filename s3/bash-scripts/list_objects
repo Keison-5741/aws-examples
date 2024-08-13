@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-echo "== List a bucket"
+echo "== List a objects on $1"
 if [ -z "$1" ]; then
     echo "The fisrt agurment must give a bucket name!"
     exit 1

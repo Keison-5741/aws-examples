@@ -12,8 +12,8 @@ fi
 # fi
 
 BUCKET_NAME=$1
-REGION_NAME=$2
-LOCALTION_NAME=$3
+# REGION_NAME=$2
+# LOCALTION_NAME=$3
 
 #https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
 aws s3api delete-bucket \
