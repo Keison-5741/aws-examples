@@ -3,6 +3,7 @@ FROM amazonlinux:latest
 
 # 更新並安裝必要的工具
 RUN yum update -y
+RUN yum install -y sudo
 RUN yum install -y git
 RUN yum install -y tree
 RUN yum install -y jq
