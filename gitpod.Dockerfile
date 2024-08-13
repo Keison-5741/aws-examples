@@ -12,5 +12,8 @@ RUN unzip awscliv2.zip
 RUN sudo ./aws/install 
 RUN rm -rf awscliv2.zip aws
 
+# 設定環境變數
+ENV AWS_CLI_AUTO_PROMPT=on-partial
+
 # 設定工作目錄（可選，根據需要設定）
 WORKDIR /workspace
