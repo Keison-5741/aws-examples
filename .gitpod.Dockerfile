@@ -1,5 +1,5 @@
-FROM amazonlinux:latest
+FROM amazonlinux:2
 
-RUN dnf update -y && \
-    dnf install -y tree jq unzip curl && \
-    dnf clean all
+RUN yum update -y && \
+    yum install -y tree jq unzip curl && \
+    yum clean all
