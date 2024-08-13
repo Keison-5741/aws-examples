@@ -8,7 +8,7 @@ RUN yum install -y git
 RUN yum install -y tree
 RUN yum install -y jq
 RUN yum install -y unzip 
-RUN yum install -y curl --allowerasing
+RUN yum install -y curl
 RUN yum clean all
 
 # 安裝 AWS CLI
