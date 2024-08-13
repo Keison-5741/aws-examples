@@ -7,8 +7,8 @@ RUN yum install -y git
 RUN yum install -y tree
 RUN yum install -y jq
 RUN yum install -y unzip 
-RUN yum install -y curl
-RUN yum yum clean all
+RUN yum install -y curl -v
+RUN yum clean all
 
 # 安裝 AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
