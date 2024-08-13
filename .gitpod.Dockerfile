@@ -1,6 +1,5 @@
 FROM amazonlinux:latest
 
 # install utilities
-RUN sudo yum update -y && \
-    sudo yum install -y tree jq unzip curl && \
-    sudo yum clean all
+RUN sudo apt update -y && \
+    sudo apt-get install -y tree jq unzip curl
