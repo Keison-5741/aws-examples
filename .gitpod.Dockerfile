@@ -2,7 +2,7 @@
 FROM amazonlinux:latest
 
 # 更新並安裝必要的工具
-RUN sudo yum update -y 
+RUN yum update -y 
 RUN sudo yum install -y 
 RUN sudo yum install -y git 
 RUN sudo yum install -y tree 
