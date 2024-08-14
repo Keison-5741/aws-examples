@@ -6,4 +6,5 @@ STACK_NAME="cnf-s3-simple"
 
 
 aws cloudformation delete-stack \
---stack-name $STACK_NAME
+--stack-name $STACK_NAME \
+--region ap-northeast-1
