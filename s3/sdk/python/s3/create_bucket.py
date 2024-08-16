@@ -29,4 +29,4 @@ def create_bucket(bucket_name, region=None):
         return False
     return True
 
-create_bucket("my-bk-py-816","ap-northeast-1")
+create_bucket("my-bk-py","ap-northeast-1")
