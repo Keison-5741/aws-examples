@@ -23,4 +23,5 @@ tasks:
         cd $THEIA_WORKSPACE_ROOT
   - name: pip install
     before:
+        pip install --upgrade pip
         pip install boto3[crt]
