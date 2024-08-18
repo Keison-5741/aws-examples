@@ -13,7 +13,7 @@
       "sudo ./aws/install",
       "pip install --upgrade pip",
       "pip install boto3",
-      "export AWS_CLI_AUTO_PROMPT='on-partial'"
+      "export AWS_CLI_AUTO_PROMPT=on-partial"
     ]
   }
   
