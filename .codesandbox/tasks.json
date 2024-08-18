@@ -12,7 +12,9 @@
     "unzip awscliv2.zip",
     "sudo ./aws/install",
     "pip install --upgrade pip",
-    "pip install boto3[crt]"
+    "pip install boto3",
+    "
+    "export 
   ],
 
   "tasks": {
