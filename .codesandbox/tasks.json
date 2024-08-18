@@ -13,24 +13,6 @@
     "sudo ./aws/install",
     "pip install --upgrade pip",
     "pip install boto3",
-    "export AWS_CLI_AUTO_PROMPT='on-partial'"
-  ],
-
-  "tasks": {
-    "start": {
-      "name": "start",
-      "command": "python main.py",
-      "runAtStart": true,
-      "restartOn": {
-        "files": ["main.py"]
-      }
-    },
-    "install-dependencies": {
-      "name": "Installing Dependencies",
-      "command": "pip install -r requirements.txt",
-      "restartOn": {
-        "files": ["requirements.txt"]
-      }
-    }
-  }
+    "export AWS_CLI_AUTO_PROMPT=on-partial"
+  ]
 }
