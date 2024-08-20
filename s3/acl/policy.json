@@ -1,0 +1,16 @@
+{
+    "Grants": [
+      {
+        "Grantee": {
+          "DisplayName": "htcedison",
+          "ID": "6beddc3ae009e787931218576c15f980db6a444b027b371d2cba6e02e67c383a",
+          "Type": "CanonicalUser"
+        },
+        "Permission": "FULL_CONTROL"
+      }
+    ],
+    "Owner": {
+      "DisplayName": "root_edison",
+      "ID": "2d9bc7e71f870942aae174115f1106f536645ce4102311734b8a2f64c0361f27"
+    }
+  }
