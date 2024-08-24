@@ -1,16 +1,16 @@
 ## Create a new s3 bucket
 
-```md
+```sh
 aws s3 mb s3://checksums-example-bk-0815
 ```
 
 ## Create a file that will we do a checksums on
 
-```md
+```sh
 aws s3 mb s3://checksums-example-bk-0815
 ```
 
-```
+```sh
 echo "Hello EYEY"" > eyfile.txt
 ```
 

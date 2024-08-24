@@ -2,7 +2,6 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 
-
 def create_bucket(bucket_name, region=None):
     """Create an S3 bucket in a specified region
 
@@ -23,10 +22,11 @@ def create_bucket(bucket_name, region=None):
             s3_client = boto3.client('s3', region_name=region)
             location = {'LocationConstraint': region}
             s3_client.create_bucket(Bucket=bucket_name,
-                                    CreateBucketConfiguration=location)
+                                    CreateBucketConfiguration=location,)
     except ClientError as e:
         logging.error(e)
         return False
     return True
 
-create_bucket("my-bk-py","ap-northeast-1")
+s3_client = boto3.client('s3')
+s3_client.put_object(Bucket="my-bk-py",body="hello.txt",key="hello.txt").excute
