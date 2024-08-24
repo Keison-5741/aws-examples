@@ -1,8 +1,6 @@
-#!/usr/bin/bash
+#!/bin/zsh
 
-```sh
 aws cloudformation deploy \
 --template-file template.yaml \
 --stack-name my-sts-stack \
 --capabilities CAPABILITY_IAM
-```

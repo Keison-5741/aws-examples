@@ -5,6 +5,10 @@ Parameters:
     Type: String
     Default: "sts-bk-0824b"
 Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      Bucketname: !Ref BucketName
   StsRole:
       Type: 'AWS::IAM::Role'
       Properties:

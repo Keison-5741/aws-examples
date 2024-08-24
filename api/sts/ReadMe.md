@@ -30,9 +30,27 @@ Make sure you don't have access to S3
 ```sh
 aws s3 ls --profile sts
 ```
+An error occurred (AccessDenied) when calling the ListBuckets operation: User: arn:aws:iam::632676649066:user/sts-machine-user is not authorized to perform: s3:ListAllMyBuckets because no identity-based policy allows the s3:ListAllMyBuckets action
 
 ## Create a Role
 
 We nee to create a role that will access a new resource
 
+```sh
+chmod u+x bin/deploy
+./bin/deploy
+```
 ## Use new user credentials and assum role
+
+```sh
+aws iam put-user-policy \
+--user-name sts-machine-user \
+--policy-name StaAssumePolicy \
+--policy-document file://Policy.json
+```
+
+```sh
+aws sts assume-role \
+--role-arn arn:aws:iam::632676649066:user/sts-machine-user \
+--role-session-name s3-access-example
+```
