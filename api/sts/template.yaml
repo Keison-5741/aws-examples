@@ -3,12 +3,12 @@ Description: Create a role for us to assume and create a resource we'll access t
 Parameters:
   BucketName:
     Type: String
-    Default: "sts-bk-0824b"
+    Default: "sts-bk-0824-t33"
 Resources:
   S3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      Bucketname: !Ref BucketName
+      BucketName: !Ref BucketName
   StsRole:
       Type: 'AWS::IAM::Role'
       Properties:
@@ -17,6 +17,7 @@ Resources:
           Statement:
             - Effect: Allow
               Principal:
+                AWS: "arn:aws:iam::632676649066:user/sts-machine-user"
                 Service:
                   - s3.amazonaws.com
               Action:
@@ -28,7 +29,7 @@ Resources:
               Version: "2012-10-17"
               Statement:
                 - Effect: Allow
-                  Action: '*'
+                  Action: 's3:*'
                   Resource: [
                     !Sub "arn:aws:s3:::${BucketName}",
                     !Sub "arn:aws:s3:::${BucketName}/*"
